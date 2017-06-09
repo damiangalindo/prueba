@@ -16,10 +16,6 @@ class SearchMovieBar extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    this.props.searchForMovies();
-  }
-
   handleChange(event) {
     const { value } = event.target;
     this.setState({ search: value });

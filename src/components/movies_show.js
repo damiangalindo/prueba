@@ -53,20 +53,22 @@ class MoviesShow extends Component {
           <h3>Movie Show</h3>
           <div>
             <div className='col-md-12'>
-              <p className='col-md-6 pull-left'>
-                <img src={ `https://image.tmdb.org/t/p/w500${ movie.poster_path }` } alt=''/>
-              </p>
-              <p className='col-md-6 pull-right'>
-                { movie.vote_average }
-              </p>
-              <p>
-                Keywords
-                { this.renderTags(keywords.keywords) }
-              </p>
-              <p>
-                Genres
-                { this.renderTags(movie.genres) }
-              </p>
+              <div className='col-md-6 pull-left'>
+                <img src={ `https://image.tmdb.org/t/p/w342${ movie.poster_path }` } alt=''/>
+              </div>
+              <div className='col-md-6 pull-right'>
+                <p>
+                  { movie.vote_average }
+                </p>
+                <p>
+                  Keywords
+                  { this.renderTags(keywords.keywords) }
+                </p>
+                <p>
+                  Genres
+                  { this.renderTags(movie.genres) }
+                </p>
+              </div>
             </div>
             <div className='col-md-12'>
               { movie.overview }

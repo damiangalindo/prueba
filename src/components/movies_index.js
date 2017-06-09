@@ -54,15 +54,25 @@ class MoviesIndex extends Component {
       return <div>Loading...</div>
     } else {
       return _.map(movies, movie => {
-        const image = !_.isEmpty(movie.poster_path) ? `https://image.tmdb.org/t/p/w500${ movie.poster_path }` : console.log(movie.poster_path)
+        const image = !_.isEmpty(movie.poster_path) ? `https://image.tmdb.org/t/p/w154${ movie.poster_path }` : console.log(movie.poster_path)
         return(
-          <li key={ movie.id } className='list-group-item'>
-            <Link to={ `/movies/${ movie.id }` }>
-              { movie.original_title }
-            </Link>
-            { movie.vote_average }
-            <img src={ image } alt='' />
-          </li>
+          <div key={ movie.id } className='col-md-6 row'>
+            <div className='text-left'>
+              <div className='col-md-6'>
+                <img src={ image } alt='' />
+              </div>
+              <div>
+                <p>
+                  <Link to={ `/movies/${ movie.id }` }>
+                    { movie.original_title }
+                  </Link>
+                </p>
+                <p>
+                  { movie.vote_average }
+                </p>
+              </div>
+            </div>
+          </div>
         )
       })
     }
@@ -148,9 +158,9 @@ class MoviesIndex extends Component {
             <button className='sr-only' type='submit'>ok</button>
           </form>
         </div>
-        <ul className='list-group'>
+        <div className='container-fluid'>
           { this.renderMovies() }
-        </ul>
+        </div>
       </div>
     )
   }
